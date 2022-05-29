@@ -1,0 +1,95 @@
+.split {
+  width: 50%;
+  position: absolute;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  padding-left: 40px;
+}
+
+.right {
+  right: 0;
+  padding-left: 40px;
+}
+
+.centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.tweet {
+  width: 75%;
+  right: 0;
+  border-radius: 10px;
+  padding: 20px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+.tweet_image {
+  background-color: white;
+  border-radius: 10px;
+  max-width: 250px;
+  max-height: 250px;
+}
+
+.user_image {
+  max-width: 25px;
+  max-height: 25px;
+  border-radius: 50%;
+}
+
+.userdata {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.comment {
+  right: 0;
+  max-width: 90%;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  padding: 5px;
+}
+
+.commentbox {
+  height: 50px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.commentbutton{
+  height: 50px;
+  width: 15%;
+  cursor: pointer;
+}
+
+.comment_header{
+  max-width: 95%;
+}
+
+.loading{
+  height: 50px;
+  width: 50px;
+}
+
+.tweetheader{
+  display: inline-flex;
+  gap: 10px;
+}
+
+.headerphoto{
+  height: 35px;
+  width: 35px;
+  /*border-style: solid;
+  border-radius: 0.1px;
+  border-color: black;*/
+  border-radius: 50%;
+}

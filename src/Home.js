@@ -1,8 +1,9 @@
 //import {useState, useEffect} from 'react';
 import BlogList from "./BlogList";
 import useFetch from './useFetch';
+import Feed from "./Feed";
 
-const Home = () => {
+/*const Home = () => {
     //let name = "mario";
     //const [name, setName] = useState("mario");
     //const [age, setAge] = useState(25);
@@ -30,29 +31,34 @@ const Home = () => {
         console.log(e);
     }*/
 
-    return (
+    /*return (
         <div className="home">
-            
-            {/*
-            <h2>Home Page</h2>
-            <p>{name} is {age} years old.</p>
-            <button onClick={handleClick}>Click Me !</button>
-            <button onClick={(e) => handleClickAgain("Mario", e)}>Click Me !!</button>
-            */}
+
 
             {isPending && <div>Loading...</div>}
             {error && <div>{error} ... </div>}
-            {!error && blogs && <BlogList blogs={blogs} title={"All Blogs !"}/>}{/*} handleDelete={handleDelete}/>}*/}
-            
-            
-            {/*
-            <BlogList blogs={blogs.filter((blog) => blog.author == 'Foo')} title={"Foo's Blogs !"}/>
-            <BlogList blogs={blogs.filter((blog) => blog.author == 'Bar')} title={"Bar's Blogs !"}/>
-            <button onClick={() => setName("luigi")}>Change Name</button>
-            */}
+            {!error && blogs && <BlogList blogs={blogs} title={"All Blogs !"}/>}{/*} handleDelete={handleDelete}/>}
+ 
 
         </div>
+        );
+
+}*/
+function Home() {
+    const { data, isPending, error } = useFetch(
+      "http://localhost:5000/feed/akash"
     );
-}
+    return (
+      <>
+        {/*<MusicKey letter='Q' src='demo.mp3'></MusicKey>
+        <MusicKey letter='W' src='demo2.mp3'></MusicKey>
+        <MusicKey letter='O' src='demo4.mp3'></MusicKey>
+        <MusicKey letter='P' src='demo3.mp3'></MusicKey>*/}
+        {data && <Feed tweets={data} />}
+        {isPending && <p>Loading...</p>}
+        {error && <p>error...</p>}
+      </>
+    );
+  }
 
 export default Home;

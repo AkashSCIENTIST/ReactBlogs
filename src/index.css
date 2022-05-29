@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 /* base styles */
+
 * {
   margin: 0;
   font-family: "Quicksand";
@@ -34,23 +35,23 @@
   padding: 20px;
 }
 
-.blog-preview{
-  padding:10px 16px;
+.blog-preview {
+  padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
 }
 
-.blog-preview:hover{
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+.blog-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-.blog-preview h2{
+.blog-preview h2 {
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 8px;
 }
 
-.blog-preview button{
+.blog-preview button {
   background-color: #f1356d;
   color: white;
   font-size: 18px;
@@ -58,21 +59,21 @@
   border-radius: 5px;
 }
 
-.blog-preview a{
+.blog-preview a {
   text-decoration: none;
 }
 
-.blog-details h2{
+.blog-details h2 {
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 10px;
 }
 
-.blog-details div{
+.blog-details div {
   margin: 20px 0;
 }
 
-.blog-details button{
+.blog-details button {
   background: #f1356d;
   color: #fff;
   border: 0;
@@ -95,7 +96,9 @@
   color: #f1356d;
   margin-bottom: 30px;
 }
-.create input, .create textarea, .create select {
+.create input,
+.create textarea,
+.create select {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
