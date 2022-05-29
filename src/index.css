@@ -16,7 +16,7 @@
   border-bottom: 1px solid #f2f2f2;
 }
 .navbar h1 {
-  color: #f1356d;
+  color: blue;
 }
 .navbar .links {
   margin-left: auto;
@@ -27,7 +27,7 @@
   padding: 6px;
 }
 .navbar a:hover {
-  color: #f1356d;
+  color: blue;
 }
 .content {
   max-width: 600px;
@@ -47,12 +47,12 @@
 
 .blog-preview h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: blue;
   margin-bottom: 8px;
 }
 
 .blog-preview button {
-  background-color: #f1356d;
+  background-color: blue;
   color: white;
   font-size: 18px;
   border: 1px solid #f2f2f2;
@@ -65,7 +65,7 @@
 
 .blog-details h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: blue;
   margin-bottom: 10px;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .blog-details button {
-  background: #f1356d;
+  background: blue;
   color: #fff;
   border: 0;
   padding: 8px;
@@ -93,7 +93,7 @@
 }
 .create h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: blue;
   margin-bottom: 30px;
 }
 .create input,
@@ -107,7 +107,7 @@
   display: block;
 }
 .create button {
-  background: #f1356d;
+  background: blue;
   color: #fff;
   border: 0;
   padding: 8px;

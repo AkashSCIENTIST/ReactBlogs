@@ -1,23 +1,21 @@
-import "./index.css"
+import "./index.css";
 
 function MiniTweet(props) {
-  const hexToBase64 = (hexstring) => {
-    if (hexstring === null) return null;
-    return btoa(
-      hexstring
-        .match(/\w{2}/g)
-        .map(function (a) {
-          return String.fromCharCode(parseInt(a, 16));
-        })
-        .join("")
-    );
-  };
-  var base64String = hexToBase64(props.userphoto);
   return (
     <div className='tweet'>
       <div className='tweetheader'>
         {props.userphoto && (
-          <img src={`data:image/jpg;base64,${base64String}`} alt='profilephoto' className='headerphoto' />
+          <img
+            src={`data:image/jpg;base64,${props.userphoto}`}
+            alt='profilephoto'
+            className='headerphoto'
+          />
+        )}
+        {!props.userphoto && (
+          <img
+            src='logo192.png'
+            alt='profilephoto'
+            className='headerphoto'></img>
         )}
         <h2>{props.name}</h2>
       </div>

@@ -13,7 +13,7 @@ const Navbar = () => {
           to='/create'
           style={{
             color: "#fafafa",
-            backgroundColor: "#f1356d",
+            backgroundColor: "blue",
             borderRadius: "8px",
           }}>
           New Blog

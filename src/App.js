@@ -20,6 +20,9 @@ function MyApp() {
             <Route exact path="/tweetpage">
               <TweetPage/>
             </Route>
+            <Route exact path="/tweetpage/:tweetid">
+              <TweetPage/>
+            </Route>
             <Route exact path="/create">
               <Create/>
             </Route>

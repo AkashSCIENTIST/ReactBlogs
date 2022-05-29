@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import MiniTweet from "./MiniTweet";
 
 function Feed({ tweets }) {
   // eslint-disable-next-line array-callback-return
   console.log(tweets.data);
+  var counter = 0;
   return (
     <>
       <link
@@ -15,14 +17,17 @@ function Feed({ tweets }) {
       />
       {tweets.data.map((tweet) => (
         <>
+          <Link to={`/tweetpage/${tweet.tweetid}`} className="nounderline">
           <MiniTweet
+            key={`${counter++}`}
             userphoto={tweet.userphoto}
             name={tweet.author}
             username={tweet.username}
             time={"Today"}
             content={tweet.content_}
             photo={tweet.photo}></MiniTweet>
-          <br></br>
+            </Link>
+        <br></br>
         </>
       ))}
     </>
