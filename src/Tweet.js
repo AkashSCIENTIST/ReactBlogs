@@ -2,7 +2,9 @@ import useFetch from "./useFetch";
 import Loading from "./Loading";
 import Error from "./Error";
 import { useParams } from "react-router-dom";
-//import { useEffect } from "react";
+import { useEffect } from "react";
+import React from 'react';
+import logo  from  "./logo512.png";
 
 function Tweet(props) {
 
@@ -17,6 +19,10 @@ function Tweet(props) {
   if (!isPending && !error) {
     console.log(tweet);
   }
+  useEffect(() => {}, []);
+  useEffect(() => {
+    props.updater(1);
+  })
 
   return (
     <>
@@ -29,6 +35,13 @@ function Tweet(props) {
               {data.userphoto && (
                 <img
                   src={`data:image/jpg;base64,${data.userphoto}`}
+                  alt='profilephoto'
+                  className='headerphoto'
+                />
+              )}
+              {!data.userphoto && (
+                <img
+                  src={logo}
                   alt='profilephoto'
                   className='headerphoto'
                 />
@@ -68,4 +81,4 @@ function Tweet(props) {
   );
 }
 
-export default Tweet;
+export default React.memo(Tweet);

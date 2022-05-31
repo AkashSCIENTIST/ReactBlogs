@@ -1,8 +1,10 @@
+import image from "./loading.gif";
+
 function Loading() {
   return (
     <>
       <center>
-        <img src='loading.gif' alt='Loading' className='loading' />
+        <img src={image} alt='Loading' className='loading' />
       </center>
       <br></br>
     </>

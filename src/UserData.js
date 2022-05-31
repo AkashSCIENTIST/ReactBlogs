@@ -1,4 +1,6 @@
-//import { useState } from "react/cjs/react.production.min";
+//import { useState } from "react";
+import logo from "./logo512.png";
+import React from 'react';
 
 function UserData(props) {
   console.log("pops of userdata: ", props);
@@ -7,7 +9,7 @@ function UserData(props) {
     <>
       <div className='userdata'>
         {!props.photo && (
-          <img src='logo512.png' alt='profilephoto' className='user_image' />
+          <img src={logo} alt='profilephoto' className='user_image' />
         )}
         {props.photo && (
           <img

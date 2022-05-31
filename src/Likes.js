@@ -2,6 +2,7 @@ import useFetch from "./useFetch";
 import Loading from "./Loading";
 import UserData from "./UserData";
 import Error from "./Error";
+import {useEffect} from "react";
 
 function Likes(props) {
   const {
@@ -13,7 +14,7 @@ function Likes(props) {
   if (!isPending && !error) {
     console.log("props of likes : ", likes);
   }
-
+  useEffect(() => {}, []);
   return (
     <>
       {isPending && <Loading />}

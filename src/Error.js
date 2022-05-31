@@ -1,8 +1,10 @@
+import image from "./error.gif";
+
 function Error() {
   return (
     <>
       <center>
-        <img src='error.gif' alt='Loading' height={'100px'} width={'200px'}/>
+        <img src={image} alt='Loading' height={'100px'} width={'200px'}/>
       </center>
       <br></br>
     </>

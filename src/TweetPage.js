@@ -5,32 +5,40 @@ import Comment from "./Comment";
 import Tweet from "./Tweet";
 import Likes from "./Likes";
 import { useParams } from "react-router-dom";
-//import { useEffect } from "react/cjs/react.production.min";
+import { useEffect } from "react";
+import { render } from "@testing-library/react";
 //import UserData from "./UserData";
 
 function TweetPage(props) {
   const { tweetid: tweet_page_id } = useParams();
   const [content, setContent] = useState("");
-  const [tweetid, setTweetid] = useState(5);
+  const [tweetid, setTweetid] = useState(1);
+  const [renderOrder, setRenderOrder] = useState(0);
   function submitHandler(e) {
     if (content !== "") console.log(content);
   }
-  if (tweet_page_id) {
-    setTweetid(tweet_page_id);
-  }
-  console.log("props of tweet page : ", props);
-  console.log("tweet_page_id : ", tweet_page_id);
+  useEffect(() => {
+    if (tweet_page_id) {
+      setTweetid(tweet_page_id);
+    }
+    console.log("props of tweet page : ", props);
+    console.log("tweet_page_id : ", tweet_page_id);
+  }, [tweet_page_id]);
 
   return (
     <>
       <div className='split left'>
         <div>
-          <Tweet tweetid={tweetid}></Tweet>
+          <div>
+            {renderOrder >= 0 && (
+              <Tweet tweetid={tweetid} updater={setRenderOrder}></Tweet>
+            )}
+          </div>
           <br></br>
           <h3>Likes</h3>
           <br></br>
           {/*<UserData username='muskelon' photosrc='logo512.png' />*/}
-          <Likes tweetid={tweetid}></Likes>
+          <div>{renderOrder >= 1 && <Likes tweetid={tweetid}></Likes>}</div>
         </div>
       </div>
       <div className='split right'>
@@ -54,7 +62,7 @@ function TweetPage(props) {
               }}
               className='commentbutton'
               onClick={submitHandler}>
-              Comment
+              Post
             </button>
             <br></br>
             <br></br>

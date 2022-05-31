@@ -1,6 +1,6 @@
 import useFetch from "./useFetch";
 import Loading from "./Loading";
-import Error from "./Error";
+//import Error from "./Error";
 import Comment from "./Comment";
 
 function Comments(props) {
@@ -16,7 +16,7 @@ function Comments(props) {
   return (
     <>
       {isPending && <Loading />}
-      {error && <Error />}
+      {error && <Loading />}
       {comments &&
         comments.map((comment) => (
           <Comment
