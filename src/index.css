@@ -30,7 +30,7 @@
   color: blue;
 }
 .content {
-  max-width: 600px;
+  width: 90%;
   margin: 40px auto;
   padding: 20px;
 }

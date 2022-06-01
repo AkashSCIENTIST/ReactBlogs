@@ -1,6 +1,35 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-//import { useCookies } from 'react-cookie';
+import { useHistory } from "react-router-dom";
+
+
+function post(url, body, callback) {
+  let headers = new Headers();
+
+  console.log(headers);
+  headers.append("Content-Type", "application/json");
+  headers.append("Accept", "application/json");
+  headers.append("Origin", "http://localhost:5000");
+
+  let formData = new FormData();
+  for (const [key, value] of Object.entries(body)) {
+    formData.append(key, value);
+  }
+  console.log(formData);
+
+  fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    credentials: "include",
+    headers: headers,
+    body: formData,
+  })
+    .then((json) => {
+      callback(json);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
 const SignUp = (props) => {
   const [username, setUserName] = useState("");
@@ -13,7 +42,6 @@ const SignUp = (props) => {
   const [photo, setPhoto] = useState("");
   const [dateofbirth, setDateOfBirth] = useState("");
   const histroy = useHistory();
-  //const [cookies, setCookie] = useCookies(['name']);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,19 +60,13 @@ const SignUp = (props) => {
     };
 
     console.log(Useradded);
-    alert(Useradded);
-    window.location.reload(false);
-    //histroy.push("/");
 
-    /*fetch("http://localhost:8000/blogs/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Useradded),
-    }).then(() => {
-      console.log("new User added");
-      //histroy.go(-1);
-      histroy.push("/");
-    });*/
+    //histroy.push("/");
+    post("http://localhost:5000/new_user_2", Useradded, (json) => {
+      console.log(json);
+      //window.location.reload(false);
+      histroy.push('/');
+    });
   };
 
   return (

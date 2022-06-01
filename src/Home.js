@@ -57,9 +57,13 @@ function HomeWrapper() {
 }
 
 function Home() {
+  const user = localStorage.getItem("username");
   const { data, isPending, error } = useFetch(
-    "http://localhost:5000/feed/akash"
+    `http://localhost:5000/feed/${user}`
   );
+  if(data){
+    console.log(data);
+  }
   return (
     <>
       {/*<MusicKey letter='Q' src='demo.mp3'></MusicKey>

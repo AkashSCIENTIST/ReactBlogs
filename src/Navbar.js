@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
   const [username, setUserName] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     setUserName(localStorage.getItem("username"));
@@ -11,13 +13,14 @@ const Navbar = () => {
   const onLogOut = () =>{
     console.log("LogOut Page");
     localStorage.removeItem('username');
-    window.location.reload(true);
+    //window.location.reload(true);
+    history.push('/');
   }
 
   return (
     <div className='navbar'>
       <a href='/'>
-        <h1>Tweeter</h1>
+        <h1>😻 Tweeter</h1>
       </a>
       <div className='links'>
         {username && (

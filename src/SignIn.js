@@ -10,20 +10,23 @@ const SignIn = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //const SignInData = { username, mail };
-    if(mail === 'root@root.root'){
+    if (mail === "root@root.root") {
       localStorage.setItem("username", username);
       window.location.reload(false);
     }
 
-    /*fetch("http://localhost:8000/blogs/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(SignInData),
-    }).then(() => {
-      console.log("Signed In");
-      //histroy.go(-1);
-      histroy.push("/");
-    });*/
+    fetch(`http://localhost:5000/auth/${username}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        console.log(json);
+        const mailid = json[0].mailid;
+        if (mail === mailid) {
+          localStorage.setItem("username", username);
+          window.location.reload(false);
+        }
+      });
   };
 
   return (
@@ -45,7 +48,9 @@ const SignIn = (props) => {
         <button>Sign In</button>
       </form>
       <br></br>
-      <Link to='/signup'><h6>If you are new user, click here to Sign Up</h6></Link>
+      <Link to='/signup'>
+        <h6>If you are new user, click here to Sign Up</h6>
+      </Link>
     </div>
   );
 };

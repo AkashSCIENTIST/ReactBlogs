@@ -20,11 +20,11 @@ function Comments(props) {
       {comments &&
         comments.map((comment) => (
           <Comment
-            key={comment.username}
+            key={`comment_${comment.username}_${comment.time}`}
             username={comment.username}
-            photo={comment.photo}
+            photo={comment.userphoto}
             time={comment.time}
-            content={comments.content}
+            content={comment.content_}
           />
         ))}
     </>

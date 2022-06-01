@@ -6,16 +6,56 @@ import Tweet from "./Tweet";
 import Likes from "./Likes";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { render } from "@testing-library/react";
 //import UserData from "./UserData";
 
+function post(url, body, callback) {
+  let headers = new Headers();
+
+  console.log(headers);
+  headers.append("Content-Type", "application/json");
+  headers.append("Accept", "application/json");
+  headers.append("Origin", "http://localhost:5000");
+
+  console.log(body);
+  let formData = new FormData();
+  for (const [key, value] of Object.entries(body)) {
+    formData.append(key, value);
+  }
+  console.log(formData);
+
+  fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    credentials: "include",
+    headers: headers,
+    body: formData,
+  })
+    .then((json) => {
+      callback(json);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
 function TweetPage(props) {
+  const username = localStorage.getItem("username");
   const { tweetid: tweet_page_id } = useParams();
   const [content, setContent] = useState("");
   const [tweetid, setTweetid] = useState(1);
   const [renderOrder, setRenderOrder] = useState(0);
   function submitHandler(e) {
-    if (content !== "") console.log(content);
+    if (content !== "") {
+      console.log(content);
+      post(
+        "http://localhost:5000/new_comment",
+        { username, content, tweet_id: tweet_page_id },
+        (res) => {
+          console.log(res);
+          window.location.reload(false);
+        }
+      );
+    }
   }
   useEffect(() => {
     if (tweet_page_id) {

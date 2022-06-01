@@ -8,7 +8,6 @@ import NotFound from './NotFound';
 import TweetPage from './TweetPage';
 import NewTweet from './NewTweet';
 import SignUp from './SignUp';
-import LogOut from './LogOut';
 import NewPoll from './Polls';
 import SignIn from './SignIn';
 

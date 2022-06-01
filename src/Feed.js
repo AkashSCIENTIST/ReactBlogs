@@ -6,7 +6,7 @@ function Feed({ tweets }) {
   console.log(tweets.data);
   var counter = 0;
   return (
-    <>
+    <div className="feed">
       <link
         href='https://fonts.googleapis.com/css?family=Asap'
         rel='stylesheet'
@@ -15,8 +15,9 @@ function Feed({ tweets }) {
         href='https://fonts.googleapis.com/css?family=Roboto'
         rel='stylesheet'
       />
+      <br></br>
       {tweets.data.map((tweet) => (
-        <>
+        <center>
           <Link to={`/tweetpage/${tweet.tweetid}`} className="nounderline">
           <MiniTweet
             key={`${counter++}`}
@@ -28,9 +29,9 @@ function Feed({ tweets }) {
             photo={tweet.photo}></MiniTweet>
             </Link>
         <br></br>
-        </>
+        </center>
       ))}
-    </>
+    </div>
   );
 }
 
